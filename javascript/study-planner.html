@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Study Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <h1>Study Planner</h1>
+  <button class="btn" id="theme" type="button" aria-label="Toggle dark mode">Dark mode</button>
+</header>
+
+<section class="stats" aria-label="Summary">
+  <div class="stat"><b id="sTotal">0</b><span>Total tasks</span></div>
+  <div class="stat"><b id="sDone">0</b><span>Completed</span></div>
+  <div class="stat"><b id="sPend">0</b><span>Pending</span></div>
+</section>
+
+<form class="add" id="addForm">
+  <input name="title" placeholder="What do you need to do?" required maxlength="120" aria-label="Task name">
+  <input name="due" type="date" aria-label="Due date">
+  <select name="category" aria-label="Category">
+    <option>Homework</option>
+    <option>Assignment</option>
+    <option>Exam</option>
+    <option>Personal</option></select>
+  <select name="priority" aria-label="Priority">
+    <option value="low">Low priority</option>
+    <option value="medium" selected>Medium priority</option>
+    <option value="high">High priority</option></select>
+<button class="btn primary" type="submit">Add task</button>
+</form>
+
+<section class="tools" aria-label="Search and filters">
+  <input type="search" id="q" placeholder="Search tasks by name" aria-label="Search tasks">
+  <div class="seg" id="status" role="group" aria-label="Filter by status">
+  <button class="btn" type="button" data-s="all" aria-pressed="true">All</button>
+  <button class="btn" type="button" data-s="pending" aria-pressed="false">Pending</button>
+  <button class="btn" type="button" data-s="completed" aria-pressed="false">Completed</button>
+</div>
+<select id="cat" aria-label="Filter by category"><option value="all">All categories</option><option>Homework</option><option>Assignment</option><option>Exam</option><option>Personal</option></select>
+<select id="sort" aria-label="Sort tasks"><option value="manual">Sort: my order</option><option value="due">Sort: due date</option><option value="priority">Sort: priority</option></select>
+</section>
+
+<p class="hint">Drag a task onto another to reorder. Dragging switches sorting to “my order.”</p>
+<ul id="list"></ul>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
